@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "mode": "pasted_manifest",
+  "status": "findings",
+  "summary": "No directive conflicts: the root and frontend instruction scopes do not overlap. One local link in AGENTS.md points to docs/old-automation-checks.md, which is absent from the explicitly complete inventory and is stated to be replaced by docs/automation-checks.md.",
+  "coverage": [
+    {"path": "AGENTS.md", "state": "read", "reason": "Full contents supplied in the manifest (9 lines)."},
+    {"path": "docs/quality.md", "state": "read", "reason": "Full contents supplied in the manifest (4 lines)."},
+    {"path": "frontend/AGENTS.md", "state": "read", "reason": "Full contents supplied in the manifest (6 lines)."},
+    {"path": "docs/automation-checks.md", "state": "read", "reason": "Full contents supplied in the manifest (5 lines)."},
+    {"path": "docs/old-automation-checks.md", "state": "missing", "reason": "Referenced from AGENTS.md line 9 but absent from the explicitly complete inventory; docs/automation-checks.md line 3 states it replaces this file."}
+  ],
+  "conflicts": [],
+  "links": [
+    {
+      "source": {"path": "AGENTS.md", "line": 6, "quote": "Read [the quality notes](docs/quality.md) before changing automation."},
+      "target": "docs/quality.md",
+      "state": "exists",
+      "reason": "docs/quality.md is listed in the complete inventory and its contents were supplied."
+    },
+    {
+      "source": {"path": "AGENTS.md", "line": 9, "quote": "Read [automation checks](docs/old-automation-checks.md) before reporting completion."},
+      "target": "docs/old-automation-checks.md",
+      "state": "missing",
+      "reason": "The inventory is explicitly complete and does not include this path; docs/automation-checks.md line 3 says it replaces docs/old-automation-checks.md."
+    }
+  ],
+  "preserve": [
+    {"citation": {"path": "AGENTS.md", "line": 8, "quote": "Run the relevant check for every changed file."}, "reason": "Verification gate that must run for every changed file."},
+    {"citation": {"path": "AGENTS.md", "line": 9, "quote": "Read [automation checks](docs/old-automation-checks.md) before reporting completion."}, "reason": "Pre-completion reading gate; only the link target should change, not the requirement to read before reporting completion."},
+    {"citation": {"path": "docs/quality.md", "line": 4, "quote": "Never remove a required check solely to make a run faster."}, "reason": "Data-integrity rule protecting required checks from removal."},
+    {"citation": {"path": "frontend/AGENTS.md", "line": 6, "quote": "Run the frontend type check after changing those source files."}, "reason": "Scoped verification gate for frontend source changes."},
+    {"citation": {"path": "docs/automation-checks.md", "line": 5, "quote": "Run the relevant checks before reporting completion."}, "reason": "Pre-completion verification gate."}
+  ],
+  "actions": [
+    {
+      "id": "A1",
+      "kind": "repair_link",
+      "citations": [
+        {"path": "AGENTS.md", "line": 9, "quote": "Read [automation checks](docs/old-automation-checks.md) before reporting completion."},
+        {"path": "docs/automation-checks.md", "line": 3, "quote": "This file replaces docs/old-automation-checks.md. Update references to docs/automation-checks.md."}
+      ],
+      "recommendation": "Change the link target on AGENTS.md line 9 from docs/old-automation-checks.md to docs/automation-checks.md, keeping the directive text unchanged. The replacement file itself states it supersedes the old path."
+    }
+  ],
+  "patches": [
+    {
+      "path": "AGENTS.md",
+      "rationale": "Repairs the broken local link to the retired checklist path so the pre-completion reading gate resolves to the existing replacement document.",
+      "edits": [
+        {"start_line": 9, "end_line": 9, "replacement": "Read [automation checks](docs/automation-checks.md) before reporting completion."}
+      ]
+    }
+  ],
+  "uncertainties": []
+}

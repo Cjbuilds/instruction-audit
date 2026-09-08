@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "case_id": "clean-control",
+  "expected_status": "clean",
+  "required_conflicts": [],
+  "required_links": [
+    {"source_path": "AGENTS.md", "source_line": 5, "target": "docs/verification.md", "state": "exists"}
+  ],
+  "required_preserve": [
+    {"path": "AGENTS.md", "line": 6},
+    {"path": "AGENTS.md", "line": 7},
+    {"path": "docs/verification.md", "line": 4}
+  ],
+  "required_action_kinds": [],
+  "allowed_patch_paths": [],
+  "max_patch_changed_lines": 0,
+  "require_no_patches": true,
+  "require_no_conflicts": true
+}

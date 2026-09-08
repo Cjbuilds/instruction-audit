@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "mode": "pasted_manifest",
+  "status": "findings",
+  "summary": "One broken local link: AGENTS.md line 5 points to docs/release-checks.md, which is absent from the complete inventory and is stated by docs/release-verification.md to have been replaced by that file. No directive conflicts were found.",
+  "coverage": [
+    {"path": "AGENTS.md", "state": "read", "reason": "Full contents supplied in the pasted manifest."},
+    {"path": "docs/security.md", "state": "read", "reason": "Full contents supplied in the pasted manifest; referenced from AGENTS.md line 6."},
+    {"path": "docs/release-verification.md", "state": "read", "reason": "Full contents supplied in the pasted manifest; listed in the complete inventory."},
+    {"path": "docs/release-checks.md", "state": "missing", "reason": "Referenced from AGENTS.md line 5 but absent from the explicitly complete inventory; docs/release-verification.md line 3 states it has been replaced."}
+  ],
+  "conflicts": [],
+  "links": [
+    {
+      "source": {"path": "AGENTS.md", "line": 5, "quote": "Read [the release checks](docs/release-checks.md) before publishing."},
+      "target": "docs/release-checks.md",
+      "state": "missing",
+      "reason": "Inventory is explicitly complete and does not include this path. docs/release-verification.md line 3 states this file replaces docs/release-checks.md."
+    },
+    {
+      "source": {"path": "AGENTS.md", "line": 6, "quote": "Read [the security rules](docs/security.md) before handling credentials."},
+      "target": "docs/security.md",
+      "state": "exists",
+      "reason": "Path is present in the complete inventory and its contents were supplied."
+    },
+    {
+      "source": {"path": "docs/release-verification.md", "line": 3, "quote": "This file replaces docs/release-checks.md. Update references to docs/release-verification.md."},
+      "target": "docs/release-checks.md",
+      "state": "missing",
+      "reason": "Prose path mention, not a Markdown link. The path is absent from the complete inventory; the line itself declares the file replaced."
+    },
+    {
+      "source": {"path": "docs/release-verification.md", "line": 3, "quote": "This file replaces docs/release-checks.md. Update references to docs/release-verification.md."},
+      "target": "docs/release-verification.md",
+      "state": "exists",
+      "reason": "Prose self-reference; the path is present in the complete inventory."
+    }
+  ],
+  "preserve": [
+    {"citation": {"path": "AGENTS.md", "line": 8, "quote": "Do not publish while required checks are failing."}, "reason": "Release gate tied to check results; must remain unchanged."},
+    {"citation": {"path": "docs/security.md", "line": 3, "quote": "Do not log tokens, passwords, or private keys."}, "reason": "Secret-handling security control."},
+    {"citation": {"path": "docs/security.md", "line": 4, "quote": "Stop and request a credential through the approved secret store when one is missing."}, "reason": "Approval gate for credential acquisition."},
+    {"citation": {"path": "docs/release-verification.md", "line": 5, "quote": "Run the relevant checks before reporting completion."}, "reason": "Verification requirement before completion is reported."}
+  ],
+  "actions": [
+    {
+      "id": "A1",
+      "kind": "repair_link",
+      "citations": [
+        {"path": "AGENTS.md", "line": 5, "quote": "Read [the release checks](docs/release-checks.md) before publishing."},
+        {"path": "docs/release-verification.md", "line": 3, "quote": "This file replaces docs/release-checks.md. Update references to docs/release-verification.md."}
+      ],
+      "recommendation": "Change the link target on AGENTS.md line 5 from docs/release-checks.md to docs/release-verification.md, as the replacement file itself directs. No other lines need to change."
+    }
+  ],
+  "patches": [
+    {
+      "path": "AGENTS.md",
+      "rationale": "Repairs the broken link to the removed docs/release-checks.md by pointing it at its stated replacement, docs/release-verification.md.",
+      "edits": [
+        {"start_line": 5, "end_line": 5, "replacement": "Read [the release checks](docs/release-verification.md) before publishing."}
+      ]
+    }
+  ],
+  "uncertainties": []
+}

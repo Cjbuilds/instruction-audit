@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "case_id": "scoped-context",
+  "title": "Different language rules in separate scopes",
+  "mode": "pasted_manifest",
+  "inventory_complete": true,
+  "inventory": [
+    "AGENTS.md",
+    "docs/quality.md",
+    "frontend/AGENTS.md",
+    "docs/automation-checks.md"
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "lines": [
+        "# Repository instructions",
+        "",
+        "Scope: repository automation.",
+        "",
+        "Use Python for automation under `scripts/`.",
+        "Read [the quality notes](docs/quality.md) before changing automation.",
+        "",
+        "Run the relevant check for every changed file.",
+        "Read [automation checks](docs/old-automation-checks.md) before reporting completion."
+      ]
+    },
+    {
+      "path": "docs/quality.md",
+      "lines": [
+        "# Quality notes",
+        "",
+        "Prefer the narrowest check that covers the changed behavior.",
+        "Never remove a required check solely to make a run faster."
+      ]
+    },
+    {
+      "path": "frontend/AGENTS.md",
+      "lines": [
+        "# Frontend instructions",
+        "",
+        "Scope: source files under `frontend/`.",
+        "",
+        "Use TypeScript for source files under `frontend/`.",
+        "Run the frontend type check after changing those source files."
+      ]
+    },
+    {
+      "path": "docs/automation-checks.md",
+      "lines": [
+        "# Checklist location",
+        "",
+        "This file replaces docs/old-automation-checks.md. Update references to docs/automation-checks.md.",
+        "",
+        "Run the relevant checks before reporting completion."
+      ]
+    }
+  ]
+}

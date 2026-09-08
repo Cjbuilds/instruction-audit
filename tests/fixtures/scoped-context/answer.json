@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "case_id": "scoped-context",
+  "expected_status": "findings",
+  "required_conflicts": [],
+  "required_links": [
+    {
+      "source_path": "AGENTS.md",
+      "source_line": 6,
+      "target": "docs/quality.md",
+      "state": "exists"
+    },
+    {
+      "source_path": "AGENTS.md",
+      "source_line": 9,
+      "target": "docs/old-automation-checks.md",
+      "state": "missing"
+    }
+  ],
+  "required_preserve": [
+    {
+      "path": "AGENTS.md",
+      "line": 8
+    },
+    {
+      "path": "frontend/AGENTS.md",
+      "line": 6
+    },
+    {
+      "path": "docs/quality.md",
+      "line": 4
+    }
+  ],
+  "required_action_kinds": [
+    "repair_link"
+  ],
+  "allowed_patch_paths": [
+    "AGENTS.md"
+  ],
+  "max_patch_changed_lines": 1,
+  "require_no_patches": false,
+  "require_no_conflicts": true
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "case_id": "broken-link",
+  "title": "Missing release checklist",
+  "mode": "pasted_manifest",
+  "inventory_complete": true,
+  "inventory": [
+    "AGENTS.md",
+    "docs/security.md",
+    "docs/release-verification.md"
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "lines": [
+        "# Release instructions",
+        "",
+        "Scope: release preparation.",
+        "",
+        "Read [the release checks](docs/release-checks.md) before publishing.",
+        "Read [the security rules](docs/security.md) before handling credentials.",
+        "",
+        "Do not publish while required checks are failing."
+      ]
+    },
+    {
+      "path": "docs/security.md",
+      "lines": [
+        "# Security rules",
+        "",
+        "Do not log tokens, passwords, or private keys.",
+        "Stop and request a credential through the approved secret store when one is missing."
+      ]
+    },
+    {
+      "path": "docs/release-verification.md",
+      "lines": [
+        "# Checklist location",
+        "",
+        "This file replaces docs/release-checks.md. Update references to docs/release-verification.md.",
+        "",
+        "Run the relevant checks before reporting completion."
+      ]
+    }
+  ]
+}

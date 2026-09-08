@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "case_id": "real-conflict",
+  "expected_status": "findings",
+  "required_conflicts": [
+    {
+      "classification": "conflict",
+      "citations": [
+        {"path": "AGENTS.md", "line": 5},
+        {"path": "docs/fast-path.md", "line": 4}
+      ]
+    }
+  ],
+  "required_links": [
+    {"source_path": "AGENTS.md", "source_line": 6, "target": "docs/fast-path.md", "state": "exists"}
+  ],
+  "required_preserve": [
+    {"path": "AGENTS.md", "line": 8},
+    {"path": "AGENTS.md", "line": 9}
+  ],
+  "required_action_kinds": ["edit"],
+  "allowed_patch_paths": ["AGENTS.md", "docs/fast-path.md"],
+  "max_patch_changed_lines": 2,
+  "require_no_patches": false,
+  "require_no_conflicts": false
+}
