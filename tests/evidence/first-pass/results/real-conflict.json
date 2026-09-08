@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "mode": "pasted_manifest",
+  "status": "findings",
+  "summary": "One proven conflict: AGENTS.md requires the full test suite before every commit for all repository work, while the linked docs/fast-path.md tells the agent to skip all tests when changing application code; the link resolves and no other directives overlap incompatibly.",
+  "coverage": [
+    {"path": "AGENTS.md", "state": "read", "reason": "Full contents supplied in the complete inventory (lines 1-9)."},
+    {"path": "docs/fast-path.md", "state": "read", "reason": "Full contents supplied in the complete inventory (lines 1-6); it is also the target of the local link on AGENTS.md line 6."}
+  ],
+  "conflicts": [
+    {
+      "id": "C1",
+      "classification": "conflict",
+      "scope": "Committing application code changes. AGENTS.md line 3 scopes its rules to all work in the repository, which includes application code; docs/fast-path.md line 3 scopes its rules to application code changes. The scopes overlap fully for any application code change that is committed.",
+      "passages": [
+        {"path": "AGENTS.md", "line": 3, "quote": "Scope: all work in this repository."},
+        {"path": "AGENTS.md", "line": 5, "quote": "Run the full test suite before every commit."},
+        {"path": "docs/fast-path.md", "line": 3, "quote": "Scope: application code changes."},
+        {"path": "docs/fast-path.md", "line": 4, "quote": "When changing application code, skip all tests and report the change immediately."}
+      ],
+      "explanation": "Under the same condition (an application code change being committed), one directive requires running the full test suite and the other requires skipping all tests. Both cannot be followed. Neither file states which document takes precedence; AGENTS.md line 6 only instructs the reader to read the fast path, it does not subordinate or elevate it. Precedence is not inferred from directory hierarchy or filename."
+    }
+  ],
+  "links": [
+    {
+      "source": {"path": "AGENTS.md", "line": 6, "quote": "Read [the fast path](docs/fast-path.md) before changing application code."},
+      "target": "docs/fast-path.md",
+      "state": "exists",
+      "reason": "Resolved relative to AGENTS.md; the path is listed in the explicitly complete inventory and its contents were supplied."
+    }
+  ],
+  "preserve": [
+    {"citation": {"path": "AGENTS.md", "line": 5, "quote": "Run the full test suite before every commit."}, "reason": "Test gate before commits; the conflict is about this rule, but any repair must keep the test requirement rather than remove it."},
+    {"citation": {"path": "AGENTS.md", "line": 8, "quote": "Never print, store, or commit credentials."}, "reason": "Credential-handling security control."},
+    {"citation": {"path": "AGENTS.md", "line": 9, "quote": "Treat failing security checks as release blockers."}, "reason": "Security release gate; a directive to skip all tests would also undermine this check."},
+    {"citation": {"path": "docs/fast-path.md", "line": 6, "quote": "Never print, store, or commit credentials."}, "reason": "Credential-handling security control, identical to AGENTS.md line 8; repetition, not a conflict, and must remain."}
+  ],
+  "actions": [
+    {
+      "id": "A1",
+      "kind": "edit",
+      "citations": [
+        {"path": "AGENTS.md", "line": 5, "quote": "Run the full test suite before every commit."},
+        {"path": "docs/fast-path.md", "line": 4, "quote": "When changing application code, skip all tests and report the change immediately."}
+      ],
+      "recommendation": "Change only docs/fast-path.md line 4 so the fast path no longer instructs skipping tests, keeping its 'report the change immediately' instruction. The test gate on AGENTS.md line 5 is an essential constraint that a repair must preserve, so the skip directive is the line to qualify. If the maintainer actually intends application code changes to bypass tests, they must state that precedence explicitly in AGENTS.md instead; this patch should not be applied without confirming that intent."
+    }
+  ],
+  "patches": [
+    {
+      "path": "docs/fast-path.md",
+      "rationale": "Resolves C1 by aligning the fast path with the commit-time test gate in AGENTS.md line 5 while preserving the immediate-reporting instruction.",
+      "edits": [
+        {"start_line": 4, "end_line": 4, "replacement": "When changing application code, run the full test suite before committing, then report the change immediately."}
+      ]
+    }
+  ],
+  "uncertainties": [
+    "Which document the maintainers intend to take precedence for application code changes is not stated in either file; the patch assumes the AGENTS.md test gate is the intended rule.",
+    "Whether 'all tests' in docs/fast-path.md line 4 was meant to include the security checks referenced in AGENTS.md line 9 cannot be determined from the supplied text."
+  ]
+}

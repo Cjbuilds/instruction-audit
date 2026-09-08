@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "case_id": "clean-control",
+  "title": "Coherent instructions",
+  "mode": "pasted_manifest",
+  "inventory_complete": true,
+  "inventory": [
+    "AGENTS.md",
+    "docs/verification.md"
+  ],
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "lines": [
+        "# Project instructions",
+        "",
+        "Scope: all repository work.",
+        "",
+        "Read [the verification guide](docs/verification.md) before submitting a change.",
+        "Run the checks that cover changed behavior.",
+        "Never include credentials or private customer data in logs, fixtures, or commits."
+      ]
+    },
+    {
+      "path": "docs/verification.md",
+      "lines": [
+        "# Verification guide",
+        "",
+        "Use the smallest existing test that exercises the changed behavior.",
+        "Run the repository build after an integrated application change.",
+        "Report any check that could not run and the reason."
+      ]
+    }
+  ]
+}

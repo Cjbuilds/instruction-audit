@@ -1,0 +1,3 @@
+# Frozen model inputs preserve exact bytes, including blank numbered lines.
+tests/inputs/*.md whitespace=-blank-at-eol
+tests/evidence/first-pass/inputs/*.md whitespace=-blank-at-eol

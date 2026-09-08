@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "mode": "pasted_manifest",
+  "status": "clean",
+  "summary": "The two supplied instruction files contain no overlapping incompatible directives, the single local reference resolves to a file present in the explicitly complete inventory, and no patch is warranted.",
+  "coverage": [
+    {"path": "AGENTS.md", "state": "read", "reason": "Full contents supplied in the pasted manifest (lines 1-7)."},
+    {"path": "docs/verification.md", "state": "read", "reason": "Full contents supplied in the pasted manifest (lines 1-5) and listed in the explicitly complete inventory."}
+  ],
+  "conflicts": [],
+  "links": [
+    {
+      "source": {"path": "AGENTS.md", "line": 5, "quote": "Read [the verification guide](docs/verification.md) before submitting a change."},
+      "target": "docs/verification.md",
+      "state": "exists",
+      "reason": "Resolved relative to AGENTS.md at the repository root; docs/verification.md appears in the explicitly complete inventory and its contents were supplied."
+    }
+  ],
+  "preserve": [
+    {"citation": {"path": "AGENTS.md", "line": 6, "quote": "Run the checks that cover changed behavior."}, "reason": "Test-execution requirement for every change."},
+    {"citation": {"path": "AGENTS.md", "line": 7, "quote": "Never include credentials or private customer data in logs, fixtures, or commits."}, "reason": "Security and data-protection control."},
+    {"citation": {"path": "docs/verification.md", "line": 3, "quote": "Use the smallest existing test that exercises the changed behavior."}, "reason": "Test-selection rule that refines, and does not contradict, AGENTS.md line 6."},
+    {"citation": {"path": "docs/verification.md", "line": 4, "quote": "Run the repository build after an integrated application change."}, "reason": "Build verification gate scoped to integrated application changes."},
+    {"citation": {"path": "docs/verification.md", "line": 5, "quote": "Report any check that could not run and the reason."}, "reason": "Reporting integrity requirement for skipped or failed checks."}
+  ],
+  "actions": [],
+  "patches": [],
+  "uncertainties": []
+}

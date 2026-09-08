@@ -1,0 +1,214 @@
+[
+  {
+    "case": "real-conflict",
+    "model": "claude-fable-5-1",
+    "canonical_model": "claude-fable-5-1",
+    "provider": "firstParty",
+    "requested_effort": "high",
+    "input_sha256": "2d384afaf118c1bd6648f0674c3166d4d0b991fdd08189e4825a84fb98ee93ff",
+    "output_sha256": "117d794111a9706a93c33b38ea5ea1979cc37a9ec309c8be70f3e0e2cc696fb2",
+    "elapsed_seconds": 35.13,
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3326,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 3326,
+      "cache_read_input_tokens": 3219,
+      "inference_geo": "not_available",
+      "input_tokens": 2,
+      "iterations": [
+        {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 3326,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 3326,
+          "cache_read_input_tokens": 3219,
+          "input_tokens": 2,
+          "output_tokens": 2598,
+          "type": "message"
+        }
+      ],
+      "output_tokens": 2598,
+      "output_tokens_details": {
+        "thinking_tokens": 848
+      },
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 0
+      },
+      "service_tier": "standard",
+      "speed": "standard"
+    },
+    "tool_calls_attempted": 0,
+    "attempts": [
+      {
+        "attempt": 1,
+        "execution_failed": false,
+        "exit_code": 0,
+        "stderr_present": false,
+        "timed_out": false
+      }
+    ]
+  },
+  {
+    "case": "broken-link",
+    "model": "claude-fable-5-1",
+    "canonical_model": "claude-fable-5-1",
+    "provider": "firstParty",
+    "requested_effort": "high",
+    "input_sha256": "3c0fde81a1003ee1de03bc41ef172fc99cfbb88209b8b598be1850eecfcf2f58",
+    "output_sha256": "6f126221bfaf0b4b71e2e19a6b22b6046617422271e5ed19a52a17f08e15c30f",
+    "elapsed_seconds": 21.685,
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3402,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 3402,
+      "cache_read_input_tokens": 3219,
+      "inference_geo": "not_available",
+      "input_tokens": 2,
+      "iterations": [
+        {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 3402,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 3402,
+          "cache_read_input_tokens": 3219,
+          "input_tokens": 2,
+          "output_tokens": 2075,
+          "type": "message"
+        }
+      ],
+      "output_tokens": 2075,
+      "output_tokens_details": {
+        "thinking_tokens": 517
+      },
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 0
+      },
+      "service_tier": "standard",
+      "speed": "standard"
+    },
+    "tool_calls_attempted": 0,
+    "attempts": [
+      {
+        "attempt": 1,
+        "execution_failed": false,
+        "exit_code": 0,
+        "stderr_present": false,
+        "timed_out": false
+      }
+    ]
+  },
+  {
+    "case": "scoped-context",
+    "model": "claude-fable-5-1",
+    "canonical_model": "claude-fable-5-1",
+    "provider": "firstParty",
+    "requested_effort": "high",
+    "input_sha256": "c4f456353ad8f23f935c9ee654d2dd4fe74edde0fc0675f4b8d97e8109438abf",
+    "output_sha256": "13954ed650ae93220eee7eac11359b7bed7f6d72c07149be9513e491b83ba25d",
+    "elapsed_seconds": 21.04,
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 3558,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 3558,
+      "cache_read_input_tokens": 3219,
+      "inference_geo": "not_available",
+      "input_tokens": 2,
+      "iterations": [
+        {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 3558,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 3558,
+          "cache_read_input_tokens": 3219,
+          "input_tokens": 2,
+          "output_tokens": 1977,
+          "type": "message"
+        }
+      ],
+      "output_tokens": 1977,
+      "output_tokens_details": {
+        "thinking_tokens": 476
+      },
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 0
+      },
+      "service_tier": "standard",
+      "speed": "standard"
+    },
+    "tool_calls_attempted": 0,
+    "attempts": [
+      {
+        "attempt": 1,
+        "execution_failed": false,
+        "exit_code": 0,
+        "stderr_present": false,
+        "timed_out": false
+      }
+    ]
+  },
+  {
+    "case": "clean-control",
+    "model": "claude-fable-5-1",
+    "canonical_model": "claude-fable-5-1",
+    "provider": "firstParty",
+    "requested_effort": "high",
+    "input_sha256": "4e0891afd4c50e714ed39d554ba5bef35dd3a94810ed79076727d38acce9ad0f",
+    "output_sha256": "a2a19626afda1247f3534fe14ed797bd6a626e390a423c6dfba55796d877c2fb",
+    "elapsed_seconds": 10.21,
+    "usage": {
+      "cache_creation": {
+        "ephemeral_1h_input_tokens": 6527,
+        "ephemeral_5m_input_tokens": 0
+      },
+      "cache_creation_input_tokens": 6527,
+      "cache_read_input_tokens": 0,
+      "inference_geo": "not_available",
+      "input_tokens": 2,
+      "iterations": [
+        {
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 6527,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "cache_creation_input_tokens": 6527,
+          "cache_read_input_tokens": 0,
+          "input_tokens": 2,
+          "output_tokens": 783,
+          "type": "message"
+        }
+      ],
+      "output_tokens": 783,
+      "output_tokens_details": {
+        "thinking_tokens": 86
+      },
+      "server_tool_use": {
+        "web_fetch_requests": 0,
+        "web_search_requests": 0
+      },
+      "service_tier": "standard",
+      "speed": "standard"
+    },
+    "tool_calls_attempted": 0,
+    "attempts": [
+      {
+        "attempt": 1,
+        "execution_failed": false,
+        "exit_code": 0,
+        "stderr_present": false,
+        "timed_out": false
+      }
+    ]
+  }
+]
